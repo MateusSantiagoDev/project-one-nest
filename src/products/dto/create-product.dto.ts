@@ -1,7 +1,19 @@
+import { IsNumber, IsPositive, IsString, IsUrl } from 'class-validator';
+
 export class CreateDto {
-    id?: string;
-    name: string;
-    description: string;
-    price: number;
-    image: string;
+  @IsString()
+  id?: string;
+
+  @IsString()
+  name: string;
+
+  @IsString()
+  description: string;
+
+  @IsNumber()
+  @IsPositive()
+  price: number;
+
+  @IsUrl()
+  image: string;
 }
