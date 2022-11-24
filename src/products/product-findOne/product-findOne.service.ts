@@ -9,7 +9,7 @@ export class ProductFindOneService {
     async findOne(id: string): Promise<ProductEntity> {
         const unique = await this.prisma.poduct.findUnique({ where: {id} });
         if(!unique) {
-            throw new Error(`Não foi encontrado nenhum registrop com o ID: ${unique}`);
+            throw new Error(`No record was found with the ID: ${unique}`);
         }
         return unique;
     }
