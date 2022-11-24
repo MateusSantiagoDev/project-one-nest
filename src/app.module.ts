@@ -5,9 +5,10 @@ import { ProductsFindAllModule } from './products/products-findAll/product-findA
 import { PrismaModule } from './prisma/prisma.module';
 import { ProductCreateModule } from './products/product-create/product-create.module';
 import { ProductFindOneModule } from './products/product-findOne/product-findOne.module';
+import { ProductUpdateModule } from './products/product-update/product-update.module';
 
 @Module({
-  imports: [ProductsFindAllModule, ProductCreateModule, ProductFindOneModule, PrismaModule],
+  imports: [ProductsFindAllModule, ProductCreateModule, ProductFindOneModule, ProductUpdateModule, PrismaModule],
   controllers: [AppController],
   providers: [AppService],
 })

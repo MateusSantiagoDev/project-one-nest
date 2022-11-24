@@ -7,5 +7,6 @@ import { ProductFindOneService } from "./product-findOne.service";
     imports: [PrismaModule],
     controllers: [ProductFindOneController],
     providers: [ProductFindOneService],
+    exports: [ProductFindOneService],
 })
 export class ProductFindOneModule {}
