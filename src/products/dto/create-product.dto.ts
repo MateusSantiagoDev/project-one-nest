@@ -4,13 +4,6 @@ import { IsNumber, IsPositive, IsString, IsUrl } from 'class-validator';
 export class CreateDto {
   @IsString()
   @ApiProperty({
-    description: "ID do produto",
-    example: 1,
-  })
-  id?: string;
-
-  @IsString()
-  @ApiProperty({
     description: "Nome do produto",
     example: "Memória RAM Fire Dragon color preto 8GB 1 RZX-D3D10M1600B/8G"
   })
