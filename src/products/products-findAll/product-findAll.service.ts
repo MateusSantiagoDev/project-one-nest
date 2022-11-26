@@ -1,13 +1,13 @@
 import { Injectable } from "@nestjs/common";
-import { PrismaService } from "src/prisma/prisma.service";
 import { ProductEntity } from "../entities/product.entity";
+import { Repository } from "./product-findAll.repository";
 
 @Injectable()
 export class ProductsFindAllService {
-    constructor(private readonly prisma: PrismaService) {}
+    constructor(private readonly repository: Repository) {}
 
     findAll(): Promise<ProductEntity[]> {
-        return this.prisma.poduct.findMany()
+        return this.repository.findAll();
     }
 
 }

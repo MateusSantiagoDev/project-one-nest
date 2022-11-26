@@ -1,15 +1,15 @@
-import { Injectable } from "@nestjs/common";
-import { PrismaService } from "src/prisma/prisma.service";
+import { Injectable, UnprocessableEntityException } from "@nestjs/common";
 import { ProductEntity } from "../entities/product.entity";
+import { Repository } from "./product-findOne.repository";
 
 @Injectable()
 export class ProductFindOneService {
-    constructor(private readonly prisma: PrismaService) {}
+    constructor(private readonly repository: Repository) {}
 
     async findOne(id: string): Promise<ProductEntity> {
-        const unique = await this.prisma.poduct.findUnique({ where: {id} });
+        const unique = await this.repository.findOne(id)
         if(!unique) {
-            throw new Error(`No record was found with the ID: ${unique}`);
+            throw new UnprocessableEntityException(`No record was found with the ID: ${unique}`);
         }
         return unique;
     }
